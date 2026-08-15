@@ -290,17 +290,26 @@
     color:var(--ivory-dim);
     max-width:640px;
   }
+
   .doc-level strong{ color:var(--gold-soft); font-weight:600; }
 
   .chip-row{
     display:flex;
-    flex-wrap:wrap;
+    flex-direction: column;
+    
     gap:10px;
     margin-top:26px;
     position:relative;
     z-index:1;
+
+
   }
   .chip{
+    flex:0 0 auto;
+    white-space: nowrap;   /* was: nowrap — this is what allows wrapping */
+    overflow:visible;
+
+    /* max-width: 100%; */
     display:inline-flex;
     align-items:center;
     gap:6px;
@@ -312,6 +321,10 @@
     text-decoration:none;
     color:var(--ivory-dim);
     transition:border-color .2s ease, color .2s ease;
+  }
+  a.chip{
+    /* border: 2px solid red; */
+    overflow-x:auto;
   }
   .chip:hover{ border-color:var(--gold); color:var(--gold-soft); }
 
