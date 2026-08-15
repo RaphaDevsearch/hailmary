@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Assumpta — A Mother Honored Beyond One Faith</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --ink-deep: #10132A;
+    --ink-mid: #1B2044;
+    --ink-card: #232A54;
+    --gold: #D8B173;
+    --gold-soft: #E9CFA0;
+    --ivory: #F4EFE6;
+    --ivory-dim: #C9C6DA;
+    --line: rgba(216,177,115,0.22);
+    --radius: 14px;
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+
+  body{
+    margin:0;
+    background:var(--ink-deep);
+    color:var(--ivory);
+    font-family:'Work Sans', sans-serif;
+    font-weight:400;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3, .display{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    letter-spacing:-0.01em;
+    margin:0;
+  }
+
+  a{ color:inherit; }
+
+  .eyebrow{
+    font-family:'Work Sans', sans-serif;
+    font-size:0.72rem;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--gold-soft);
+    font-weight:600;
+  }
+
+  .wrap{
+    max-width:1080px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(16,19,42,0.78);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 28px;
+    max-width:1080px;
+    margin:0 auto;
+  }
+  .mark{
+    font-family:'Fraunces', serif;
+    font-size:1.15rem;
+    letter-spacing:0.04em;
+  }
+  .mark span{ color:var(--gold); }
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:'Work Sans', sans-serif;
+    font-weight:500;
+    font-size:0.92rem;
+    padding:11px 22px;
+    border-radius:999px;
+    text-decoration:none;
+    cursor:pointer;
+    border:1px solid transparent;
+    transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+  }
+  .btn:focus-visible{ outline:2px solid var(--gold); outline-offset:3px; }
+  .btn-primary{
+    background:linear-gradient(135deg, var(--gold-soft), var(--gold));
+    color:#241B0B;
+  }
+  .btn-primary:hover{ transform:translateY(-2px); box-shadow:0 10px 30px -8px rgba(216,177,115,0.55); }
+  .btn-ghost{
+    background:transparent;
+    border-color:var(--line);
+    color:var(--ivory);
+    font-size:0.85rem;
+    padding:9px 18px;
+  }
+  .btn-ghost:hover{ border-color:var(--gold); color:var(--gold-soft); }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    min-height:92vh;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+    padding:80px 0 60px;
+  }
+
+  .halo-field{
+    position:absolute;
+    inset:0;
+    z-index:0;
+    pointer-events:none;
+  }
+  .halo-field svg{
+    position:absolute;
+    top:50%; left:50%;
+    transform:translate(-50%,-52%);
+    width:min(1100px, 150vw);
+    height:auto;
+    opacity:0.9;
+  }
+  .halo-ring{
+    transform-origin:400px 400px;
+    animation: spin 90s linear infinite;
+  }
+  .halo-ring.slow{ animation-duration:150s; animation-direction:reverse; }
+
+  @keyframes spin{ to{ transform:rotate(360deg); } }
+  @keyframes drift{
+    0%,100%{ opacity:.35; transform:translateY(0); }
+    50%{ opacity:.9; transform:translateY(-6px); }
+  }
+  .star{ animation: drift 6s ease-in-out infinite; }
+
+  .hero-content{
+    position:relative;
+    z-index:2;
+    max-width:760px;
+    margin:0 auto;
+    text-align:center;
+  }
+  .hero-content h1{
+    font-size:clamp(2.3rem, 5.2vw, 4rem);
+    line-height:1.08;
+    margin:22px 0 20px;
+    color:var(--ivory);
+  }
+  .hero-content h1 em{
+    font-style:italic;
+    color:var(--gold-soft);
+  }
+  .hero-sub{
+    font-size:1.08rem;
+    color:var(--ivory-dim);
+    max-width:560px;
+    margin:0 auto 36px;
+  }
+  .hero-actions{
+    display:flex;
+    gap:14px;
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+  .anim-in{
+    opacity:0;
+    transform:translateY(16px);
+    animation:riseIn .9s ease forwards;
+  }
+  .anim-in.d1{ animation-delay:.05s; }
+  .anim-in.d2{ animation-delay:.2s; }
+  .anim-in.d3{ animation-delay:.35s; }
+  .anim-in.d4{ animation-delay:.5s; }
+  @keyframes riseIn{ to{ opacity:1; transform:translateY(0); } }
+
+  /* ---------- SECTION SHARED ---------- */
+  section{ padding:100px 0; position:relative; }
+  .section-head{ max-width:620px; margin-bottom:52px; }
+  .section-head h2{
+    font-size:clamp(1.7rem, 3vw, 2.4rem);
+    margin-top:14px;
+    color:var(--ivory);
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:64px;
+    align-items:center;
+  }
+  .about-grid p{
+    color:var(--ivory-dim);
+    font-size:1.02rem;
+    margin:0 0 18px;
+  }
+  .about-grid p:last-child{ margin-bottom:0; }
+  .about-graphic{
+    display:flex; align-items:center; justify-content:center;
+  }
+  .about-graphic svg{ width:100%; max-width:280px; height:auto; }
+
+  @media (max-width:820px){
+    .about-grid{ grid-template-columns:1fr; }
+    .about-graphic{ order:-1; margin-bottom:12px; }
+    .about-graphic svg{ max-width:180px; }
+  }
+
+  /* ---------- FEATURED MIRACLE ---------- */
+  .miracle-section{
+    background:var(--ink-mid);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .miracle-card{
+    background:var(--ink-card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:44px;
+    position:relative;
+    overflow:hidden;
+  }
+  .miracle-card::before{
+    content:"";
+    position:absolute;
+    top:-120px; right:-120px;
+    width:280px; height:280px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(216,177,115,0.25), transparent 70%);
+  }
+  .miracle-meta{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:18px;
+  }
+  .pill{
+    font-size:0.74rem;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    padding:6px 13px;
+    border-radius:999px;
+    border:1px solid var(--line);
+    color:var(--gold-soft);
+    font-weight:600;
+  }
+  .miracle-card h3{
+    font-size:clamp(1.4rem, 2.6vw, 1.9rem);
+    margin-bottom:18px;
+    max-width:640px;
+    position:relative;
+    z-index:1;
+  }
+  .miracle-card p{
+    color:var(--ivory-dim);
+    max-width:680px;
+    position:relative;
+    z-index:1;
+  }
+  .testimony{
+    margin-top:22px;
+    padding:18px 20px;
+    border-left:3px solid var(--gold);
+    background:rgba(216,177,115,0.06);
+    border-radius:0 8px 8px 0;
+    font-style:italic;
+    color:var(--ivory);
+    max-width:640px;
+    position:relative;
+    z-index:1;
+  }
+  .doc-level{
+    margin-top:18px;
+    font-size:0.88rem;
+    color:var(--ivory-dim);
+    max-width:640px;
+  }
+  .doc-level strong{ color:var(--gold-soft); font-weight:600; }
+
+  .chip-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:26px;
+    position:relative;
+    z-index:1;
+  }
+  .chip{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-size:0.82rem;
+    padding:9px 15px;
+    border-radius:999px;
+    background:rgba(244,239,230,0.06);
+    border:1px solid var(--line);
+    text-decoration:none;
+    color:var(--ivory-dim);
+    transition:border-color .2s ease, color .2s ease;
+  }
+  .chip:hover{ border-color:var(--gold); color:var(--gold-soft); }
+
+  /* ---------- CTA BANNER ---------- */
+  .cta-banner{
+    text-align:center;
+    padding:110px 28px;
+  }
+  .cta-banner .eyebrow{ display:block; margin-bottom:16px; }
+  .cta-banner h2{
+    font-size:clamp(1.8rem, 4vw, 2.6rem);
+    max-width:640px;
+    margin:0 auto 18px;
+  }
+  .cta-banner p{
+    color:var(--ivory-dim);
+    max-width:520px;
+    margin:0 auto 34px;
+  }
+
+.all-miracle{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(340px, 1fr));
+  gap:28px;
+  padding:60px 0 100px;
+}
+
+/* the existing .miracle-card rules still apply — these just adjust it
+   for being repeated several times instead of shown once */
+.all-miracle .miracle-card{
+  padding:36px;
+  margin:0;
+}
+
+.all-miracle .miracle-card::before{
+  width:200px;
+  height:200px;
+  top:-80px;
+  right:-80px;
+}
+
+.all-miracle .miracle-card h3{
+  font-size:1.3rem;
+}
+
+.description-more{
+  display:grid;
+  grid-template-rows:0fr;
+  opacity:0;
+  transition:grid-template-rows .4s ease, opacity .3s ease;
+}
+.description-more > div{
+  overflow:hidden;
+}
+.description-more.open{
+  grid-template-rows:1fr;
+  opacity:1;
+}
+.show-more-btn{
+  background:none;
+  border:none;
+  color:var(--gold-soft);
+  font-size:0.85rem;
+  font-weight:600;
+  cursor:pointer;
+  padding:4px 0 18px;
+  text-align:left;
+  font-family:'Work Sans', sans-serif;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+}
+.show-more-btn:hover{ color:var(--gold); text-decoration:underline; }
+.show-more-btn:focus-visible{ outline:2px solid var(--gold); outline-offset:3px; }
+.show-more-btn .arrow{
+  display:inline-block;
+  transition:transform .3s ease;
+}
+.show-more-btn.open .arrow{
+  transform:rotate(180deg);
+}
+
+@media (prefers-reduced-motion: reduce){
+  .description-more{ transition:none; }
+  .show-more-btn .arrow{ transition:none; }
+}
+
+@media (max-width:720px){
+  .all-miracle{
+    grid-template-columns:1fr;
+    gap:22px;
+    padding:40px 0 70px;
+  }
+}
+  /* ---------- FOOTER ---------- */
+  footer{
+    border-top:1px solid var(--line);
+    padding:36px 28px;
+    text-align:center;
+    color:var(--ivory-dim);
+    font-size:0.85rem;
+  }
+  footer .mark{ margin-bottom:8px; display:block; }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    .halo-ring, .star, .anim-in{ animation:none !important; opacity:1 !important; transform:none !important; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="mark">assumpt<span>a</span></div>
+    <a href="#miracle" class="btn btn-ghost">Explore Miracles</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="halo-field" aria-hidden="true">
+    <svg viewBox="0 0 800 800">
+      <g class="halo-ring">
+        <circle cx="400" cy="400" r="260" fill="none" stroke="#D8B173" stroke-opacity="0.18" stroke-width="1"/>
+        <circle cx="400" cy="400" r="320" fill="none" stroke="#D8B173" stroke-opacity="0.10" stroke-width="1"/>
+        <g fill="#E9CFA0">
+          <circle class="star" cx="400" cy="140" r="2.4"/>
+          <circle class="star" cx="640" cy="260" r="1.8" style="animation-delay:1s"/>
+          <circle class="star" cx="700" cy="470" r="2.2" style="animation-delay:2s"/>
+          <circle class="star" cx="560" cy="640" r="1.6" style="animation-delay:.6s"/>
+          <circle class="star" cx="330" cy="670" r="2" style="animation-delay:1.6s"/>
+          <circle class="star" cx="140" cy="520" r="1.8" style="animation-delay:2.4s"/>
+          <circle class="star" cx="110" cy="300" r="2.2" style="animation-delay:.9s"/>
+          <circle class="star" cx="250" cy="150" r="1.6" style="animation-delay:1.9s"/>
+        </g>
+      </g>
+      <g class="halo-ring slow">
+        <circle cx="400" cy="400" r="200" fill="none" stroke="#D8B173" stroke-opacity="0.28" stroke-width="1.4"/>
+      </g>
+      <circle cx="400" cy="400" r="130" fill="url(#glow)"/>
+      <defs>
+        <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#D8B173" stop-opacity="0.30"/>
+          <stop offset="100%" stop-color="#D8B173" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+    </svg>
+  </div>
+
+  <div class="wrap hero-content">
+    <div class="eyebrow anim-in d1">August 15th · The Feast of the Assumption</div>
+    <h1 class="anim-in d2">A mother honored <em>beyond</em> one faith alone</h1>
+    <p class="hero-sub anim-in d3">
+      Today marks the day Catholic tradition holds that Mary was taken body and soul into heaven.
+      But her story hasn't stayed inside one church. Across centuries and continents, people who
+      never called themselves Christian have stood in a crowd, looked up, and seen something they
+      couldn't explain — and called it by her name.
+    </p>
+    <div class="hero-actions anim-in d4">
+      <a href="#miracle" class="btn btn-primary">See a Witnessed Account</a>
+      <a href="#about" class="btn btn-ghost">What is the Assumption?</a>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap about-grid">
+    <div>
+      <div class="eyebrow">The Feast</div>
+      <h2>Taken up, not left behind</h2>
+      <p>
+        The Assumption is the belief, held by Catholic and Orthodox Christians alike, that at the end
+        of her life Mary was taken up into heaven — body and soul, not just in spirit. It's been
+        marked as a feast day for well over a thousand years, on August 15th, and in many countries
+        it's still a public holiday, regardless of who's celebrating.
+      </p>
+      <p>
+        What makes her story unusual is how far it travels outside church walls. In Islam, she's the
+        only woman named in the Qur'an, honored as the mother of the prophet Isa. In parts of East
+        Asia, her image has been quietly folded into Buddhist devotion. And in the accounts that
+        follow, some of her most striking appearances were first reported not by the faithful, but by
+        strangers to her — neighbors, skeptics, government investigators, people of entirely different
+        beliefs, standing in a crowd and looking up.
+      </p>
+    </div>
+    <div class="about-graphic">
+      <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="100" cy="100" r="70" stroke="#D8B173" stroke-opacity="0.5" stroke-width="1"/>
+        <circle cx="100" cy="100" r="52" stroke="#D8B173" stroke-opacity="0.75" stroke-width="1.4"/>
+        <circle cx="100" cy="100" r="30" fill="#D8B173" fill-opacity="0.12" stroke="#E9CFA0" stroke-width="1"/>
+        <g fill="#E9CFA0">
+          <circle cx="100" cy="24" r="2.4"/>
+          <circle cx="164" cy="60" r="1.8"/>
+          <circle cx="164" cy="140" r="1.8"/>
+          <circle cx="100" cy="176" r="2.4"/>
+          <circle cx="36" cy="140" r="1.8"/>
+          <circle cx="36" cy="60" r="1.8"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="miracle-section" id="miracle">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Witnessed Beyond Catholicism</div>
+      <h2>They didn't come looking for her</h2>
+    </div>
+
+    <div class="all-miracle" id="all-miracle">
+    <!-- populated by JS -->
+  </div>
+  </div>
+</section>
+
+<section class="cta-banner">
+  <div class="eyebrow">There's more than one account</div>
+  <h2>Fátima, Akita, Donglü, and a jungle in Vietnam are still waiting.</h2>
+  <p>This is one of several places where people met her in a country, or a faith, that wasn't their own.</p>
+  <a href="#" class="btn btn-primary" id="see-all-btn">See All Miracles</a>
+</section>
+
+<footer>
+  <span class="mark">assumpt<span style="color:var(--gold)">a</span></span>
+  Documented accounts and community testimony are labeled separately throughout — see each entry's sourcing notes.
+</footer>
+<script>
+  async function loadMiracles(jsonPath = 'miracles.json') {
+    try {
+      const response = await fetch(jsonPath);
+      if (!response.ok) {
+        throw new Error(`Failed to load ${jsonPath}: ${response.status}`);
+      }
+      const data = await response.json();
+      return data.miracles;
+    } catch (err) {
+      console.error('Could not load miracle data:', err);
+      return [];
+    }
+  }
+
+  function promptToChip(prompt) {
+    const isUrl = /^https?:\/\//i.test(prompt);
+    const url = isUrl ? prompt : `https://www.google.com/search?q=${encodeURIComponent(prompt.replace(/^Search( YouTube)?:\s*/i, '').replace(/['"]/g, ''))}`;
+    const label = isUrl ? prompt.replace(/^https?:\/\//i, '') : prompt;
+    return `<a class="chip" href="${url}" target="_blank" rel="noopener">${label} ↗</a>`;
+  }
+
+function cardHTML(m) {
+    const paraArr = m.description.split('\n\n');
+    const first = `<p>${paraArr[0]}</p>`;
+    const rest = paraArr.slice(1).map(p => `<p>${p}</p>`).join('');
+    const chips = m.prompts.map(promptToChip).join('');
+    return `
+      <div class="miracle-card">
+        <div class="miracle-meta">
+          <span class="pill">${m.country}</span>
+          <span class="pill">${m.date_range}</span>
+        </div>
+        <h3>${m.title}</h3>
+        <div class="description">
+          ${first}
+          <div class="description-more"><div>${rest}</div></div>
+        </div>
+        ${rest ? `<button class="show-more-btn" type="button" onclick="toggleDescription(this)">
+          <span class="label">Show more</span><span class="arrow">↓</span>
+        </button>` : ''}
+        <div class="testimony">“${m.testimony_highlight}”</div>
+        <div class="doc-level"><strong>Documentation:</strong> ${m.documentation_level}</div>
+        <div class="chip-row">
+          <a class="chip" href="${m.video_link}" target="_blank" rel="noopener">Watch on YouTube ↗</a>
+          ${chips}
+        </div>
+      </div>
+    `;
+  }
+
+  function toggleDescription(btn){
+    const more = btn.previousElementSibling.querySelector('.description-more');
+    const expanded = more.classList.toggle('open');
+    btn.classList.toggle('open', expanded);
+    btn.querySelector('.label').textContent = expanded ? 'Show less' : 'Show more';
+  }
+  function renderAll(miracles) {
+    const container = document.getElementById('all-miracle');
+    if (!miracles.length) {
+      container.innerHTML = `<p>Nothing to show right now. Please try again shortly.</p>`;
+      return;
+    }
+    container.innerHTML = miracles.map(cardHTML).join('');
+  }
+
+  loadMiracles().then(miracles => {
+    renderAll(miracles);
+  });
+
+  document.getElementById('see-all-btn')?.addEventListener('click', function(e){
+    e.preventDefault();
+    document.getElementById('miracle').scrollIntoView({behavior:'smooth'});
+  });
+</script>
+
+</body>
+</html>
